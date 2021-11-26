@@ -1,8 +1,10 @@
 let lomake = document.forms['formNewKaveri'];
-let kaveriList = documet.getElementById('kaveriList');
+let kaveriList = document.getElementById('kaveriList');
+let nimet = document.getElementById['kaveriList'];
 
 lomake.addEventListener('submit', uusiListaElementti)
 kaveriList.addEventListener('click', kaverinKlikkaus)
+button.addEventListener('submit', jarjestaKaverit)
 
 function uusiListaElementti(event){
     
@@ -26,12 +28,19 @@ function uusiListaElementti(event){
     document.querySelector('#kaveriList').appendChild(uusiElementti)
 }
 
+
 function kaverinKlikkaus(event){
+    console.log('Klikkasit listaa')
     console.log(event.target)
     let parentti = event.target.parentElement;
     poistaKlikattuKaveri(event.target, parentti)
 }
 
 function poistaKlikattuKaveri(poistettavaKaveri, kaverinParentti){
-    kaverinParentti.removeChild(poistettavaKaveri)
+    kaverinParentti.removeChild(poistettavaKaveri);
+}
+
+function jarjestaKaverit(event){
+    event.preventDefault()
+    nimet.sort()
 }
