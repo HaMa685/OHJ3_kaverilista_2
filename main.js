@@ -1,6 +1,7 @@
 let lomake = document.forms['formNewKaveri'];
 let kaveriLista = document.getElementById('kaveriList');
 let button = document.getElementById('jarjesta');
+const kaveritListalla= new Array ();
 
 lomake.addEventListener('submit', uusiListaElementti)
 kaveriLista.addEventListener('click', kaverinKlikkaus)
@@ -12,7 +13,8 @@ function uusiListaElementti(event){
 
     // Haetaan elementille nimi input-kentästä
     let elementinNimi = document.querySelector('#main input[type="text"]').value;
-
+    console.log('lisätään kaveri listalle');
+    kaveritListalla.push(elementinNimi);
     if(elementinNimi.length < 1){
         alert('Kirjoita nimi');
         return;
@@ -30,7 +32,7 @@ function uusiListaElementti(event){
 
 
 function kaverinKlikkaus(event){
-    console.log('Klikkasit listaa')
+    console.log('Klikkasit listaa ja poistat kaverin')
     console.log(event.target)
     let parentti = event.target.parentElement;
     poistaKlikattuKaveri(event.target, parentti)
@@ -43,14 +45,16 @@ function poistaKlikattuKaveri(poistettavaKaveri, kaverinParentti){
 function jarjestaKaverit(event){
     event.preventDefault()
     
-    jarjesta();
-    
-function jarjesta() {
+    document.getElementById('kaveriList').innerHTML = kaveritListalla;
+    console.log(kaveritListalla);
+    kaveritListalla.sort();
 
-    
-    
-    
-    
-}
-
+    let kLen= kaveritListalla.length;
+    let text= "<ul>";
+    for (let i= 0; i < kLen; i++) {
+        text+= "<li>" +  kaveritListalla[i] + " </li>";
+    }
+    text +="</ul>";
+    document.getElementById('kaveriList').innerHTML= text;
+    console.log(kaveritListalla);
 }
