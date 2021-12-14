@@ -1,0 +1,29 @@
+body {
+    background-color:darkcyan;
+}
+
+header {
+  
+    font-size:x-large;
+}
+
+h1 {
+    color:indigo;
+}
+
+h2 {
+    color: indigo;
+}
+
+input {
+    color:darkcyan;
+}
+
+button {
+    color: darkcyan;
+}
+
+ul {
+   
+    color: coral;
+}
