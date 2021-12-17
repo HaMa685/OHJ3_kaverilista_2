@@ -21,9 +21,12 @@ input {
 
 button {
     color: darkcyan;
+    margin-top: 5em 5em;
+    
+    
 }
 
 ul {
    
-    color: coral;
+    color: indigo;
 }
